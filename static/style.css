@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+
+   /* background image */
+    background: url("form-img.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    width: 450px;
+    margin: 50px auto;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+h2 {
+    text-align: center;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 8px;
+}
+
+button {
+    background: #e63946;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #c92c39;
+}

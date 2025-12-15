@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forest Fire Prediction</title>
+
+    <!-- link CSS from static folder -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+<h2>Forest Fire Prediction (General Model)</h2>
+
+<form method="POST">
+
+    Temperature (°C):
+    <input type="number" step="any" name="Temperature" required><br><br>
+
+    Relative Humidity (RH %):
+    <input type="number" step="any" name="RH" required><br><br>
+
+    Wind Speed (Ws, km/h):
+    <input type="number" step="any" name="Ws" required><br><br>
+
+    Rainfall (Rain, mm):
+    <input type="number" step="any" name="Rain" required><br><br>
+
+    FFMC (Fine Fuel Moisture Code):
+    <input type="number" step="any" name="FFMC" required><br><br>
+
+    DMC (Duff Moisture Code):
+    <input type="number" step="any" name="DMC" required><br><br>
+
+    DC (Drought Code):
+    <input type="number" step="any" name="DC" required><br><br>
+
+    ISI (Initial Spread Index):
+    <input type="number" step="any" name="ISI" required><br><br>
+
+    BUI (Build Up Index):
+    <input type="number" step="any" name="BUI" required><br><br>
+
+    <label>Choose Model:</label>
+    <select name="model">
+        <option value="classification">Classification (Fire / No Fire)</option>
+        <option value="regression">Regression (Fire Weather Index – FWI)</option>
+        <option value="both">Both</option>
+    </select>
+
+    <br><br>
+    <button type="submit">Predict</button>
+</form>
+
+<hr>
+
+{% if fire_result is not none %}
+<h3>Fire Prediction: {{ fire_result }}</h3>
+{% endif %}
+
+{% if fwi_result is not none %}
+<h3>Predicted FWI (Fire Weather Index): {{ fwi_result }}</h3>
+{% endif %}
+
+</div>
+
+</body>
+</html>
